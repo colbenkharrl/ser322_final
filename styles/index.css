@@ -1,5 +1,11 @@
-.html {
+html {
 	background-color: #fafafa;
+}
+
+body {
+	background-color: #fafafa;
+	padding-bottom: 20px;
+	margin-bottom: 56px;
 }
 
 .navbar {
@@ -11,6 +17,7 @@
 	margin-top: 20px;
 }
 
+.form-container,
 .table-container {
 	margin: 20px;
 }
@@ -22,6 +29,14 @@
 .add-btn {
 	margin: 20px;
 	margin-left: auto;
+}
+
+.add-form-btn {
+	margin: 20px 20px 20px 0px;
+}
+
+.form-section {
+	padding: 20px;
 }
 
 .table-detail {
@@ -49,7 +64,7 @@
 }
 
 .page-footer {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	width: 100%;
 }
@@ -57,4 +72,8 @@
 .footer-copyright {
 	background-color: #2d2d2d;
 	color: #fff;
+}
+
+.req {
+	color: red;
 }

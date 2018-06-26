@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+
+	<link rel="stylesheet" href="styles/index.css">
+	<title>MyTunes - Album Form</title>
+</head>
+
+<body>
+	<div id="navbar"></div>
+	<div class="form-container card">
+		<div class="table-detail">
+			<h2 class="table-title">New Album</h2>
+		</div>
+		<form class="form-section needs-validation" novalidate>
+			<div class="form-group">
+				<label for="albumNameInput">Album Name<span class="req">*</span></label>
+				<input type="text" class="form-control" id="albumNameInput" aria-describedby="name" placeholder="Enter album name" required>
+			</div>
+			<div class="form-group">
+				<label for="genreInput">Genre<span class="req">*</span></label>
+				<input type="text" class="form-control" id="genreInput" aria-describedby="name" placeholder="Enter genre" required>
+			</div>
+			<div class="form-group">
+				<label for="priceInput">Price<span class="req">*</span></label>
+				<input type="number" step="0.01" class="form-control" id="priceInput" placeholder="0.0" required>
+			</div>
+			<div class="form-group">
+				<label for="releaseDateInput">Release Date<span class="req">*</span></label>
+				<input type="date" class="form-control" id="releaseDateInput" required>
+			</div>
+			<div class="form-group">
+				<label for="bandSelect">Band<span class="req">*</span></label>
+				<select class="form-control" id="bandSelect" required>
+						<option value="">Choose band</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="producerSelect">Producer</label>
+				<select class="form-control" id="producerSelect">
+						<option value="">Choose producer</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="tracksInput">Track List<span class="req">*</span></label>
+				<small id="emailHelp" class="form-text text-muted">Select from a list of tracks that are not already part of an album.</small>
+				<select multiple class="form-control" id="tracksInput" required>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Add</button>
+			<button type="button" class="btn btn-secondary" onClick="document.location.href='list-albums.html';">Cancel</button>
+		</form>
+	</div>
+	<div id="footer"></div>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	 crossorigin="anonymous"></script>
+	<script src="js/components.js"></script>
+	<script src="js/validate.js"></script>
+	<script>
+		$.get("php/get_all_resource.php?resource=BAND", function (d) {
+			data = JSON.parse(d);
+			data.forEach(function (t) {
+				$('#bandSelect').append('<option>' + t.bandName + '</option>');
+			});
+		});
+		$.get("php/get_all_resource.php?resource=PRODUCER", function (d) {
+			data = JSON.parse(d);
+			data.forEach(function (t) {
+				$('#producerSelect').append('<option>' + t.producerName + '</option>');
+			});
+		});
+		$.get("php/get_free_tracks.php", function (d) {
+			data = JSON.parse(d);
+			data.forEach(function (t) {
+				$('#tracksInput').append('<option>' + t.trackName + '</option>');
+			});
+		});
+	</script>
+</body>
+
+</html>
