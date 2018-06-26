@@ -1,0 +1,60 @@
+.html {
+	background-color: #fafafa;
+}
+
+.navbar {
+	background-color: #fafafa;
+	box-shadow: 0 1px 1px 0px #9e9e9e, 0 2px 2px 0px #dbdbdb;
+}
+
+.container {
+	margin-top: 20px;
+}
+
+.table-container {
+	margin: 20px;
+}
+
+.table-title {
+	padding: 20px 10px 10px 20px;
+}
+
+.add-btn {
+	margin: 20px;
+	margin-left: auto;
+}
+
+.table-detail {
+	display: flex;
+	flex-direction: row;
+}
+
+.card {
+	box-shadow: 0 3px 1px -2px rgba(0,0,0,.2),0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.plaque {
+	padding: 20px;
+	cursor: pointer;
+}
+
+.plaque-title {
+	text-align: center;
+}
+
+.plaque-img {
+	height: 100px;
+	display: block;
+	margin: 30px auto;
+}
+
+.page-footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer-copyright {
+	background-color: #2d2d2d;
+	color: #fff;
+}
