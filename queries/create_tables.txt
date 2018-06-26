@@ -1,0 +1,81 @@
+CREATE TABLE MUSICIAN (
+MusicianID int NOT NULL AUTO_INCREMENT,
+firstName varchar(20) NOT NULL,
+lastName varchar(20) NOT NULL,
+emailAddress varchar(40) NOT NULL,
+phoneNumber varchar(15) NOT NULL,
+PRIMARY KEY (MusicianID)
+);
+
+CREATE TABLE BAND (
+BandID int NOT NULL AUTO_INCREMENT,
+bandName varchar(40) NOT NULL,
+genre varchar(20),
+startDate date NOT NULL,
+endDate date,
+PRIMARY KEY (BandID)
+);
+
+CREATE TABLE ALBUM (
+AlbumID int NOT NULL AUTO_INCREMENT,
+albumName varchar(40) NOT NULL,
+genre varchar(20),
+price decimal(5,2),
+PRIMARY KEY(AlbumID)
+);
+
+CREATE TABLE PRODUCER (
+ProducerID int NOT NULL AUTO_INCREMENT,
+producerName varchar(40) NOT NULL,
+emailAddress varchar(40) NOT NULL,
+phoneNumber varchar(15) NOT NULL,
+PRIMARY KEY (ProducerID)
+);
+
+CREATE TABLE TRACK (
+TrackID int NOT NULL AUTO_INCREMENT,
+trackName varchar(40) NOT NULL,
+length smallint NOT NULL,
+PRIMARY KEY (TrackID)
+);
+
+CREATE TABLE MEMBER_OF (
+MembershipID int NOT NULL AUTO_INCREMENT,
+MusicianID int NOT NULL,
+BandID int NOT NULL,
+role varchar(20),
+startDate date NOT NULL,
+endDate date,
+PRIMARY KEY (MembershipID),
+FOREIGN KEY (MusicianID) REFERENCES MUSICIAN(MusicianID),
+FOREIGN KEY (BandID) REFERENCES BAND(BandID)
+);
+
+CREATE TABLE RELEASES (
+ReleaseID int NOT NULL AUTO_INCREMENT,
+BandID int NOT NULL,
+AlbumID int NOT NULL,
+releaseDate date NOT NULL,
+PRIMARY KEY (ReleaseID),
+FOREIGN KEY (BandID) REFERENCES BAND(BandID),
+FOREIGN KEY (AlbumID) REFERENCES ALBUM(AlbumID)
+);
+
+CREATE TABLE PRODUCES (
+ProductionID int NOT NULL AUTO_INCREMENT,
+ProducerID int NOT NULL,
+AlbumID int NOT NULL,
+budget int NOT NULL,
+PRIMARY KEY (ProductionID),
+FOREIGN KEY (ProducerID) REFERENCES PRODUCER(ProducerID),
+FOREIGN KEY (AlbumID) REFERENCES ALBUM(AlbumID)
+);
+
+CREATE TABLE HAS_TRACK (
+TracklistID int NOT NULL AUTO_INCREMENT,
+AlbumID int NOT NULL,
+TrackID int NOT NULL,
+PRIMARY KEY (TracklistID),
+FOREIGN KEY (AlbumID) REFERENCES ALBUM(AlbumID),
+FOREIGN KEY (TrackID) REFERENCES TRACK(TrackID)
+);

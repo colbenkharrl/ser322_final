@@ -1,0 +1,73 @@
+INSERT INTO MUSICIAN (firstName, lastName, emailAddress, phoneNumber)
+VALUES ('Paul', 'McCartney', 'paul@beatles.com', '4081238473');
+INSERT INTO MUSICIAN (firstName, lastName, emailAddress, phoneNumber)
+VALUES ('John', 'Lennon', 'john@beatles.com', '3458371938');
+INSERT INTO MUSICIAN (firstName, lastName, emailAddress, phoneNumber)
+VALUES ('George', 'Harrison', 'george@beatles.com', '4758293758');
+INSERT INTO MUSICIAN (firstName, lastName, emailAddress, phoneNumber)
+VALUES ('Ringo', 'Starr', 'ringo@beatles.com', '4759920496');
+
+INSERT INTO BAND (bandName, genre, startDate, endDate)
+VALUES ('The Beatles', 'rock/pop', '1960-08-01', '1974-12-29');
+
+INSERT INTO MEMBER_OF (MusicianID, BandID, role, startDate, endDate)
+VALUES (1, 1, 'singer-songwriter', '1957-07-01', '1974-12-29');
+INSERT INTO MEMBER_OF (MusicianID, BandID, role, startDate, endDate)
+VALUES (2, 1, 'singer-songwriter', '1957-03-01', '1974-12-29');
+INSERT INTO MEMBER_OF (MusicianID, BandID, role, startDate, endDate)
+VALUES (3, 1, 'singer-songwriter', '1958-02-01', '1974-12-29');
+INSERT INTO MEMBER_OF (MusicianID, BandID, role, startDate, endDate)
+VALUES (4, 1, 'singer-songwriter', '1962-08-15', '1974-12-29');
+
+/* ABBEY ROAD */
+
+INSERT INTO ALBUM (albumName, genre, price)
+VALUES ('Abbey Road', 'rock', 19.99);
+
+INSERT INTO RELEASES (BandID, AlbumID, releaseDate)
+VALUES (1, 1, '1969-09-26');
+
+INSERT INTO PRODUCER (producerName, emailAddress, phoneNumber)
+VALUES ('George Martin', 'georgeM@beatles.com', '4758394052');
+
+INSERT INTO PRODUCES (ProducerID, AlbumID, budget)
+VALUES (1, 1, 1000000);
+
+INSERT INTO TRACK (trackName, length)
+VALUES ('Come Together', ((60 * 4) + 18));
+INSERT INTO TRACK (trackName, length)
+VALUES ('Something', ((60 * 3) + 2));
+INSERT INTO TRACK (trackName, length)
+VALUES ('Maxwell\'s Silver Hammer', ((60 * 3) + 27));
+
+INSERT INTO HAS_TRACK (AlbumID, TrackID)
+VALUES (1, 1);
+INSERT INTO HAS_TRACK (AlbumID, TrackID)
+VALUES (1, 2);
+INSERT INTO HAS_TRACK (AlbumID, TrackID)
+VALUES (1, 3);
+
+/* THE BEATLES (WHITE ALBUM) */
+
+INSERT INTO ALBUM (albumName, genre, price)
+VALUES ('The Beatles (White Album)', 'rock', 15.99);
+
+INSERT INTO RELEASES (BandID, AlbumID, releaseDate)
+VALUES (1, 2, '1968-11-22');
+
+INSERT INTO PRODUCES (ProducerID, AlbumID, budget)
+VALUES (1, 2, 1500000);
+
+INSERT INTO TRACK (trackName, length)
+VALUES ('Dear Prudence', ((60 * 2) + 42));
+INSERT INTO TRACK (trackName, length)
+VALUES ('Blackbird', ((60 * 2) + 18));
+INSERT INTO TRACK (trackName, length)
+VALUES ('Rocky Raccoon', ((60 * 3) + 33));
+
+INSERT INTO HAS_TRACK (AlbumID, TrackID)
+VALUES (2, 4);
+INSERT INTO HAS_TRACK (AlbumID, TrackID)
+VALUES (2, 5);
+INSERT INTO HAS_TRACK (AlbumID, TrackID)
+VALUES (2, 6);
