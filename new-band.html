@@ -55,7 +55,7 @@
 		$.get("php/get_musicians.php", function (d) {
 			data = JSON.parse(d);
 			data.forEach(function(t) {
-				$('#membersInput').append('<option>' + t.firstName + ' ' + t.lastName + '</option>');
+				$('#membersInput').append('<option value="' + t.MusicianID + '">' + t.firstName + ' ' + t.lastName + '</option>');
 			});
 		});
 	</script>
