@@ -28,7 +28,7 @@
 					<th scope="col">Band</th>
 					<th scope="col">Genre</th>
 					<th scope="col">Price</th>
-					<th scope="col">Producer</th>
+					<th scope="col">Release Date</th>
 				</tr>
 			</thead>
 			<tbody id="albums-tbody">
@@ -47,7 +47,7 @@
 		$.get("php/get_albums.php", function (d) {
 			data = JSON.parse(d);
 			data.forEach(function(t) {
-				$('#albums-tbody').append('<tr><th scope="row">' + t.albumName + '</th><td>' + t.bandName + '</td><td>'+t.genre+'</td><td>$'+t.price+'</td><td>'+t.producerName+'</td></tr>');
+				$('#albums-tbody').append('<tr><th scope="row">' + t.albumName + '</th><td>' + t.bandName + '</td><td>'+t.genre+'</td><td>$'+t.price+'</td><td>'+t.releaseDate+'</td></tr>');
 			});
 		});
 	</script>
